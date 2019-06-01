@@ -10,9 +10,9 @@ GPIO.setup(output, GPIO.OUT)
 # Set output PWM to 50 Hz
 pwm = GPIO.PWM(output, 50)
 # Duty Cycle Start Value
-start = 5
+start = 2
 # Initialize output with duty cycle of X%
-pwm.start(0)
+pwm.start(start)
 
 try:
     while True:
