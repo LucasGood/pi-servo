@@ -24,12 +24,7 @@ try:
         time.sleep(0.5)
         pwm.ChangeDutyCycle(15)
         time.sleep(0.5)
-        pwm.ChangeDutyCycle(20)
-        time.sleep(0.5)
-        pwm.ChangeDutyCycle(25)
-        time.sleep(0.5)
-        pwm.ChangeDutyCycle(30)
-
+        
 except KeyboardInterrupt:
   pwm.stop()
   GPIO.cleanup()
