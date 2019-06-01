@@ -34,7 +34,7 @@ pwm.start(start)
 
 
 try:
-    while True:
+    while input == True:
         while start < 10:
             pwm.ChangeDutyCycle(start + 1)
             time.sleep(0.5)
