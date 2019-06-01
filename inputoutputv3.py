@@ -5,7 +5,7 @@ import time
 output = 11
 
 # Set GPIO into Board mode
-GPIO.setmode(GPIO.BOARD)
+GPIO.setmode(GPIO.BCM)
 
 #setup GPIO to output on pin <output>
 GPIO.setup(output, GPIO.OUT)
@@ -14,7 +14,7 @@ GPIO.setup(output, GPIO.OUT)
 output-pwm = GPIO.PWM(output, 50)
 
 # Initialize output with duty cycle of X%
-output-pwm.start(2)
+output-pwm.start(2.5)
 
 try:
     while True:
@@ -31,5 +31,5 @@ try:
         output-pwm.ChangeDutyCycle(30)
 
 except KeyboardInterrupt:
-    output-pwm.stop()
-    GPIO.cleanup()
+  output-pwm.stop()
+  GPIO.cleanup()
