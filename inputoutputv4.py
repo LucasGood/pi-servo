@@ -26,7 +26,7 @@ GPIO.setup(inp, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 # Assign input to variable
 
-input = GPIO.input(input)
+input = GPIO.input(inp)
 
 # Initialize output with duty cycle of X%
 pwm.start(start)
