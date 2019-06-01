@@ -22,7 +22,7 @@ start = 2.5
 inp = 18
 
 # Setup pin for input
-GPIO.setup(inp, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(inp, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 # Assign input to variable
 
