@@ -19,14 +19,14 @@ start = 2.5
 
 # ----INPUT----
 # Set input pin
-input = 18
+inp = 18
 
 # Setup pin for input
 GPIO.setup(input, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 # Assign input to variable
 
-inp = GPIO.input(input)
+input = GPIO.input(input)
 
 # Initialize output with duty cycle of X%
 pwm.start(start)
