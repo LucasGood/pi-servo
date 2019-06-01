@@ -31,13 +31,13 @@ inp = GPIO.input(input)
 # Initialize output with duty cycle of X%
 pwm.start(start)
 
-# TESTING --v--
-
-# Test input
-while True:
-    print(inp)
-
-# TESTING --^--
+# # TESTING --v--
+#
+# # Test input
+# while True:
+#     print(inp)
+#
+# # TESTING --^--
 
 try:
     while True:
