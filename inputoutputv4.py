@@ -43,6 +43,6 @@ while True:
                 if start >=10:
                     start = 2.5
 
-except KeyboardInterrupt:
+    except KeyboardInterrupt:
   pwm.stop()
   GPIO.cleanup()
