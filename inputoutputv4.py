@@ -44,5 +44,5 @@ while True:
                     start = 2.5
 
     except KeyboardInterrupt:
-  pwm.stop()
-  GPIO.cleanup()
+        pwm.stop()
+        GPIO.cleanup()
