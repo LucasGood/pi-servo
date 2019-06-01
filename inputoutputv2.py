@@ -10,7 +10,7 @@ GPIO.setup(output, GPIO.OUT)
 # Set output PWM to 50 Hz
 pwm = GPIO.PWM(output, 50)
 # Duty Cycle Start Value
-start = 2
+start = 2.5
 # Initialize output with duty cycle of X%
 pwm.start(start)
 
@@ -34,8 +34,7 @@ try:
         time.sleep(0.5)
         pwm.ChangeDutyCycle(start + 9)
         time.sleep(0.5)
-        pwm.ChangeDutyCycle(start + 10)
-        time.sleep(0.5)
+
 
 except KeyboardInterrupt:
   pwm.stop()
