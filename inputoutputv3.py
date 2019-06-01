@@ -2,7 +2,7 @@ import RPi.GPIO as GPIO
 import time
 
 # Set output pin
-output = 11
+output = 17
 
 # Set GPIO into Board mode
 GPIO.setmode(GPIO.BCM)
