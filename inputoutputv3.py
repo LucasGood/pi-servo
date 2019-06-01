@@ -16,10 +16,11 @@ pwm.start(start)
 
 try:
     while start < 10:
+        print(start)
         pwm.ChangeDutyCycle(start + 1)
         time.sleep(0.5)
         start = start + 1
-
+        print(start)
 
 except KeyboardInterrupt:
   pwm.stop()
