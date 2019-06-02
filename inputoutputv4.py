@@ -32,17 +32,19 @@ input = GPIO.input(inp)
 pwm.start(start)
 
 
-while True:
-    try:
+try:
+    while True:
         while input == True:
             while start < 10:
-                pwm.ChangeDutyCycle(start + 1)
+                pwm.ChangeDutyCycle(start)
                 time.sleep(0.5)
-                start = start + 1
-                print(start)
-                if start >=10:
-                    start = 2.5
+                print("Input True")
+        while input == False:
+            while start < 10:
+                pwm.ChangeDutyCycle(start + 5)
+                time.sleep(0.5)
+                print("Input False")
 
-    except KeyboardInterrupt:
+except KeyboardInterrupt:
         pwm.stop()
         GPIO.cleanup()
