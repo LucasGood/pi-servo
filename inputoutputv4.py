@@ -19,7 +19,7 @@ start = 2.5
 
 # ----INPUT----
 # Set input pin
-inp = 18
+inp = 2
 
 # Setup pin for input
 GPIO.setup(inp, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
@@ -39,12 +39,13 @@ try:
                 pwm.ChangeDutyCycle(start)
                 time.sleep(0.5)
                 print("Input True")
+                time.sleep(0.5)
         while input == False:
             while start < 10:
                 pwm.ChangeDutyCycle(start + 5)
                 time.sleep(0.5)
                 print("Input False")
-
+                time.sleep(0.5)
 except KeyboardInterrupt:
         pwm.stop()
         GPIO.cleanup()
