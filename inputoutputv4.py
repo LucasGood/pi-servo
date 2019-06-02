@@ -19,10 +19,10 @@ start = 2.5
 
 # ----INPUT----
 # Set input pin
-inp = 2
+inp = 4 
 
 # Setup pin for input
-GPIO.setup(inp, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(inp, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 # Assign input to variable
 
