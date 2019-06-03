@@ -5,6 +5,10 @@ import time
 # Set output pin
 output = 17
 
+# ----INPUT----
+# Set input pin
+inp = 4
+
 # Set GPIO into BCM mode
 GPIO.setmode(GPIO.BCM)
 
@@ -15,11 +19,8 @@ GPIO.setup(output, GPIO.OUT)
 pwm = GPIO.PWM(output, 50)
 
 # Duty Cycle Start Value
-start = 2.5
+start = 0
 
-# ----INPUT----
-# Set input pin
-inp = 4 
 
 # Setup pin for input
 GPIO.setup(inp, GPIO.IN, pull_up_down=GPIO.PUD_UP)
@@ -28,24 +29,24 @@ GPIO.setup(inp, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 input = GPIO.input(inp)
 
-# Initialize output with duty cycle of X%
+# Initialize output with variable $start
 pwm.start(start)
 
 
 try:
+    # Loop to keep checking input
+    # Will update to edge detection
     while True:
         while input == True:
-            while start < 10:
-                pwm.ChangeDutyCycle(start)
-                time.sleep(0.5)
-                print("Input True")
-                time.sleep(0.5)
+            pwm.ChangeDutyCycle(1)
+            time.sleep(0.5)
+            print("Input True")
+            time.sleep(0.5)
         while input == False:
-            while start < 10:
-                pwm.ChangeDutyCycle(start + 5)
-                time.sleep(0.5)
-                print("Input False")
-                time.sleep(0.5)
+            pwm.ChangeDutyCycle(start + 5)
+            time.sleep(0.5)
+            print("Input False")
+            time.sleep(0.5)
 except KeyboardInterrupt:
         pwm.stop()
         GPIO.cleanup()
