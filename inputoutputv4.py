@@ -41,12 +41,12 @@ try:
             pwm.ChangeDutyCycle(3)
             time.sleep(0.5)
             print("Input True")
-            time.sleep(0.5)
+            # time.sleep(0.5)
         while input == False:
             pwm.ChangeDutyCycle(start + 5)
             time.sleep(0.5)
             print("Input False")
-            time.sleep(0.5)
+            # time.sleep(0.5)
 except KeyboardInterrupt:
         pwm.stop()
         GPIO.cleanup()
