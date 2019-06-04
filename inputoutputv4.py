@@ -19,11 +19,11 @@ GPIO.setup(output, GPIO.OUT)
 pwm = GPIO.PWM(output, 50)
 
 # Duty Cycle Start Value
-start = 0
+start = 2.5
 
 
 # Setup pin for input
-GPIO.setup(inp, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(inp, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 # Assign input to variable
 
@@ -38,7 +38,7 @@ try:
     # Will update to edge detection
     while True:
         while input == True:
-            pwm.ChangeDutyCycle(1)
+            pwm.ChangeDutyCycle(3)
             time.sleep(0.5)
             print("Input True")
             time.sleep(0.5)
