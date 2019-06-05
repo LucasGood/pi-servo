@@ -27,7 +27,6 @@ GPIO.setup(inp, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 # Assign input to variable
 
-input = GPIO.input(inp)
 
 # Initialize output with variable $start
 pwm.start(start)
@@ -37,6 +36,7 @@ try:
     # Loop to keep checking input
     # Will update to edge detection
     while True:
+        input = GPIO.input(inp)
         while input == True:
             pwm.ChangeDutyCycle(3)
             time.sleep(0.5)

@@ -36,6 +36,7 @@ pwm.start(start)
     # Loop to keep checking input
     # Will update to edge detection
 while True:
+    # Must declare input variable in while loop
     input = GPIO.input(inp)
     if input == True:
         pwm.ChangeDutyCycle(3)
