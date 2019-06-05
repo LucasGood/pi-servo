@@ -37,12 +37,12 @@ try:
     # Will update to edge detection
     while True:
         input = GPIO.input(inp)
-        while input == True:
+        if input == True:
             pwm.ChangeDutyCycle(3)
             time.sleep(0.5)
             print("Input True")
             # time.sleep(0.5)
-        while input == False:
+        else:
             pwm.ChangeDutyCycle(start + 5)
             time.sleep(0.5)
             print("Input False")
