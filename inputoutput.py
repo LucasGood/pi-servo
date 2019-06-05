@@ -5,7 +5,7 @@ GPIO.setup(4, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 
 while True:
-    input = GPIO.input(16)
+    input = GPIO.input(4)
     if (input == True):
         print("input true")
     else:
