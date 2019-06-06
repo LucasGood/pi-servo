@@ -2,11 +2,11 @@ import RPi.GPIO as GPIO
 import time
 
 # ----OUTPUT----
-# Set output pin
+#  pin no.
 output = 17
 
 # ----INPUT----
-# Set input pin
+#  pin no.
 inp = 4
 
 # Set GPIO into BCM mode
@@ -18,31 +18,41 @@ GPIO.setup(output, GPIO.OUT)
 # Set output PWM to 50 Hz
 pwm = GPIO.PWM(output, 50)
 
-# Duty Cycle Start Value
-start = 2.5
-
-
 # Setup pin for input
 GPIO.setup(inp, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
-# Assign input to variable
-
-
 # Initialize output with variable $start
-pwm.start(start)
+#pwm.start(start)
 
 
-
+try:
     # Loop to keep checking input
     # Will update to edge detection
-while True:
-    # Must declare input variable in while loop
-    input = GPIO.input(inp)
-    if input == True:
-        pwm.ChangeDutyCycle(3)
-        time.sleep(0.5)
-        print("Input True")
-    else:
-        pwm.ChangeDutyCycle(start + 5)
-        time.sleep(0.5)
-        print("Input False")
+    while True:
+        input = GPIO.input(inp)
+        if input == True:
+            start = 3
+            while True:
+                pwm.ChangeDutyCycle(start)
+                time.sleep(0.5)
+                pwm.ChangeDutyCycle(start + 1)
+                if start >= 6:
+                    start = 3
+            print("Input True")
+                # time.sleep(0.5)
+        else:
+            start = 6
+            while True:
+                pwm.ChangeDutyCycle(start)
+                time.sleep(0.5)
+                pwm.ChangeDutyCycle(start - 1)
+                if start <= 3:
+                    start = 6
+
+            # pwm.ChangeDutyCycle(start + 5)
+            # time.sleep(0.5)
+            # print("Input False")
+            # time.sleep(0.5)
+except KeyboardInterrupt:
+        pwm.stop()
+        GPIO.cleanup()
