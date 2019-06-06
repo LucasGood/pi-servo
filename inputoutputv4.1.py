@@ -21,10 +21,6 @@ pwm = GPIO.PWM(output, 50)
 # Setup pin for input
 GPIO.setup(inp, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
-# Initialize output with variable $start
-#pwm.start(start)
-
-
 try:
     # Loop to keep checking input
     # Will update to edge detection
@@ -32,27 +28,24 @@ try:
         input = GPIO.input(inp)
         if input == True:
             start = 3
+            pwm.start(start)
             while True:
                 pwm.ChangeDutyCycle(start)
                 time.sleep(0.5)
                 pwm.ChangeDutyCycle(start + 1)
                 if start >= 6:
                     start = 3
-            print("Input True")
+                    print("Input True")
                 # time.sleep(0.5)
         else:
             start = 6
+            pwm.start(start)
             while True:
                 pwm.ChangeDutyCycle(start)
                 time.sleep(0.5)
                 pwm.ChangeDutyCycle(start - 1)
                 if start <= 3:
                     start = 6
-
-            # pwm.ChangeDutyCycle(start + 5)
-            # time.sleep(0.5)
-            # print("Input False")
-            # time.sleep(0.5)
 except KeyboardInterrupt:
         pwm.stop()
         GPIO.cleanup()
