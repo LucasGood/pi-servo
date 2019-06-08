@@ -22,10 +22,11 @@ GPIO.setup(inp, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 pwm = GPIO.PWM(output, 50)
 
 # Setup edge/event detection
-#try:
-while True:
-    GPIO.wait_for_edge(inp, GPIO.RISING)
-    print("Rise on pin {0} ".format(inp))
+try:
+    while True:
+        GPIO.wait_for_edge(inp, GPIO.RISING)
+        print("Rise on pin {0} ".format(inp))
 
+except KeyboardInterrupt:
     GPIO.cleanup
 pwm.stop()
