@@ -45,7 +45,7 @@ try:
             print("Input False")
             start = 6
             pwm.start(start)
-            while input == True:
+            while input == False:
                 pwm.ChangeDutyCycle(start)
                 print(start)
                 time.sleep(0.5)
