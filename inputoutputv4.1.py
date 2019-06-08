@@ -30,19 +30,20 @@ try:
             print("Input True")
             start = 3
             pwm.start(start)
-            while True:
+            while input == True:
                 pwm.ChangeDutyCycle(start)
                 time.sleep(0.5)
                 pwm.ChangeDutyCycle(start + 1)
                 if start >= 6:
                     start = 3
                     print("Input True")
+
                 # time.sleep(0.5)
         else:
             print("Input False")
             start = 6
             pwm.start(start)
-            while True:
+            while input == True:
                 pwm.ChangeDutyCycle(start)
                 time.sleep(0.5)
                 pwm.ChangeDutyCycle(start - 1)
