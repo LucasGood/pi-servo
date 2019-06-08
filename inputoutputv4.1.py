@@ -27,6 +27,7 @@ try:
     while True:
         input = GPIO.input(inp)
         if input == True:
+            print("Input True")
             start = 3
             pwm.start(start)
             while True:
@@ -38,6 +39,7 @@ try:
                     print("Input True")
                 # time.sleep(0.5)
         else:
+            print("Input False")
             start = 6
             pwm.start(start)
             while True:
