@@ -25,7 +25,11 @@ pwm = GPIO.PWM(output, 50)
 try:
     while True:
         GPIO.wait_for_edge(inp, GPIO.RISING)
+        pwm.ChangeDutyCycle(3)
         print("Rise on pin {0} ".format(inp))
+        GPIO.wait_for_edge(inp, GPIO.FALLING)
+        pwm.ChangeDutyCycle(3)
+
 
 except KeyboardInterrupt:
     GPIO.cleanup
