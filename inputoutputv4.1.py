@@ -32,8 +32,10 @@ try:
             pwm.start(start)
             while input == True:
                 pwm.ChangeDutyCycle(start)
+                print(start)
                 time.sleep(0.5)
                 pwm.ChangeDutyCycle(start + 1)
+                print(start)
                 if start >= 6:
                     start = 3
                     print("Input True")
@@ -45,8 +47,10 @@ try:
             pwm.start(start)
             while input == True:
                 pwm.ChangeDutyCycle(start)
+                print(start)
                 time.sleep(0.5)
                 pwm.ChangeDutyCycle(start - 1)
+                print(start)
                 if start <= 3:
                     start = 6
 except KeyboardInterrupt:
