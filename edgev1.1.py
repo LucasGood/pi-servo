@@ -16,7 +16,7 @@ fall = GPIO.wait_for_edge(inp, GPIO.FALLING)
 
 # Setup edge/event detection
 while True:
-    if rise == True:
-        print("rise")
-    if fall == True:
-        print("fall")
+    if rise is None:
+        print("Nothing")
+    else:
+        print("Edge detected on {0} ".format(inp))
