@@ -35,7 +35,7 @@ try:
     #     pwm.ChangeDutyCycle(6)
     #     print("Rise on pin {0} ".format(inp))
 
-    if GPIO.wait_for_edge(inp, GPIO.RISING) == True:
+    if GPIO.wait_for_edge(inp, GPIO.FALLING) == True:
         print("rising")
 
     pass
