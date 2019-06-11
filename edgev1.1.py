@@ -21,8 +21,8 @@ GPIO.setup(inp, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 # Set output PWM to 50 Hz
 pwm = GPIO.PWM(output, 50)
 
-channel.rise = GPIO.wait_for_edge(inp, GPIO.RISING)
-channel.fall = GPIO.wait_for_edge(inp, GPIO.FALLING)
+channel-rise = GPIO.wait_for_edge(inp, GPIO.RISING)
+channel-fall = GPIO.wait_for_edge(inp, GPIO.FALLING)
 
 # Setup edge/event detection
 try:
