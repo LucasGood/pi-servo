@@ -16,7 +16,6 @@ fall = GPIO.wait_for_edge(inp, GPIO.FALLING)
 
 # Setup edge/event detection
 try:
-    pwm.start(3)
     if channel.rise == True:
         print("rise")
     if channel.fall == True:
