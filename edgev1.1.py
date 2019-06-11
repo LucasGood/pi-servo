@@ -15,12 +15,8 @@ rise = GPIO.wait_for_edge(inp, GPIO.RISING)
 fall = GPIO.wait_for_edge(inp, GPIO.FALLING)
 
 # Setup edge/event detection
-try:
+while True:
     if rise == True:
         print("rise")
     if fall == True:
         print("fall")
-
-except KeyboardInterrupt:
-    GPIO.cleanup
-    pwm.stop()
