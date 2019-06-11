@@ -37,8 +37,6 @@ try:
 
     if GPIO.wait_for_edge(inp, GPIO.RISING) == True:
         print("rising")
-    else:
-        print("nothing")
 
     pass
 except KeyboardInterrupt:
