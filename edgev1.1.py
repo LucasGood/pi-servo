@@ -16,9 +16,9 @@ fall = GPIO.wait_for_edge(inp, GPIO.FALLING)
 
 # Setup edge/event detection
 try:
-    if channel.rise == True:
+    if rise == True:
         print("rise")
-    if channel.fall == True:
+    if fall == True:
         print("fall")
 
 except KeyboardInterrupt:
