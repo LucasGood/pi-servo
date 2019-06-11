@@ -11,8 +11,8 @@ GPIO.setmode(GPIO.BCM)
 # Setup GPIO input
 GPIO.setup(inp, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
-channel-rise = GPIO.wait_for_edge(inp, GPIO_RISING)
-channel-fall = GPIO.wait_for_edge(inp, GPIO_FALLING)
+rise = GPIO.wait_for_edge(inp, GPIO_RISING, timeout=5000)
+fall = GPIO.wait_for_edge(inp, GPIO_FALLING, timeout=5000)
 
 # Setup edge/event detection
 try:
