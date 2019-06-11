@@ -24,16 +24,23 @@ pwm = GPIO.PWM(output, 50)
 
 # Setup edge/event detection
 try:
-    pwm.start(3)
-    while True:
-        # Set PWM to 4 if input TRUE
-        GPIO.wait_for_edge(inp, GPIO.RISING)
-        pwm.ChangeDutyCycle(4)
-        print("Fall on pin {0} ".format(inp))
-        GPIO.wait_for_edge(inp, GPIO.FALLING)
-        # Set PWM to 6 if innput TRUE
-        pwm.ChangeDutyCycle(6)
-        print("Rise on pin {0} ".format(inp))
+    # pwm.start(3)
+    # while True:
+    #     # Set PWM to 4 if input TRUE
+    #     GPIO.wait_for_edge(inp, GPIO.RISING)
+    #     pwm.ChangeDutyCycle(4)
+    #     print("Fall on pin {0} ".format(inp))
+    #     GPIO.wait_for_edge(inp, GPIO.FALLING)
+    #     # Set PWM to 6 if innput TRUE
+    #     pwm.ChangeDutyCycle(6)
+    #     print("Rise on pin {0} ".format(inp))
+
+    if GPIO.wait_for_edge(inp, GPIO.RISING) == True:
+        print("rising")
+    else:
+        print("nothing")
+
+    pass
 except KeyboardInterrupt:
     GPIO.cleanup
     pwm.stop()
